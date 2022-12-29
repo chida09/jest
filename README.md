@@ -12,7 +12,7 @@ $ npx ts-node src/doubleSquare.ts
 # テスト
 
 ```
-$ npm test test/double.test.ts
+$ npm test ./test/exportConst/doubleSquare.test.ts
 ```
 
 # メモ

@@ -8,3 +8,9 @@
 ```
 $ npx ts-node src/doubleSquare.ts
 ```
+
+# テスト
+
+```
+$ npm test test/double.test.ts
+```

@@ -14,3 +14,7 @@ $ npx ts-node src/doubleSquare.ts
 ```
 $ npm test test/double.test.ts
 ```
+
+# メモ
+
+`export default` と `export const` で挙動が変わる

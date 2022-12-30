@@ -2,6 +2,7 @@
 import doubleSquare from "../../src/defaultExport/doubleSquare"
 import assert from "assert"
 
+// jest.spyOnをつかう
 describe('spyを使ったexport defaultの検証', () => {
   let spy: jest.SpyInstance
 

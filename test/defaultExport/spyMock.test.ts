@@ -3,6 +3,7 @@ import doubleSquare from "../../src/defaultExport/doubleSquare"
 import double from "../../src/defaultExport/double"
 import assert from "assert"
 
+// jest.mockをつかう
 jest.mock('../../src/defaultExport/double', () => {
   // もとの関数の振る舞いを取得したいので、 jest.requireActual を使い、
   // jest.fn().mockImplementation(originalModule.default) で同じ振る舞いさせている

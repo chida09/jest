@@ -1,10 +1,12 @@
+// npx jest test/defaultExport/mock.test.ts
 import doubleSquare from "../../src/defaultExport/doubleSquare"
 import double from "../../src/defaultExport/double"
 import assert from "assert"
 
 jest.mock('../../src/defaultExport/double', () => {
+  // もとの関数の振る舞いを取得したいので、 jest.requireActual を使い、
+  // jest.fn().mockImplementation(originalModule.default) で同じ振る舞いさせている
   const originalModule = jest.requireActual('../../src/defaultExport/double')
-
   return {
     __esModule: true,
     default: jest.fn().mockImplementation(originalModule.default)
@@ -23,6 +25,16 @@ describe('jest.mockを使ったexport defaultの検証', () => {
     // .mock.callsは呼び出した回数分の引数の情報がはいる
     // lengthを使えば、何回呼び出されたのかがわかる
     assert.equal((double as jest.Mock).mock.calls.length, 1)
+
+    // console.log('double.mock', (double as jest.Mock).mock)
+    // double.mock {
+    //   calls: [ [ 3 ] ],
+    //       contexts: [ undefined ],
+    //       instances: [ undefined ],
+    //       invocationCallOrder: [ 1 ],
+    //       results: [ { type: 'return', value: 6 } ],
+    //       lastCall: [ 3 ]
+    // }
   })
 
   it('doubleの引数は3である', () => {

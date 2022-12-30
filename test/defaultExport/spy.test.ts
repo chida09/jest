@@ -1,7 +1,7 @@
+// npx jest test/defaultExport/spy.test.ts
 import doubleSquare from "../../src/defaultExport/doubleSquare"
 import assert from "assert"
 
-// jest.spyOnを使ってspyを実現する
 describe('spyを使ったexport defaultの検証', () => {
   let spy: jest.SpyInstance
 
@@ -9,6 +9,15 @@ describe('spyを使ったexport defaultの検証', () => {
     const double = require('../../src/defaultExport/double')
     // @ts-ignore
     spy = jest.spyOn(double, 'default')
+
+    // console.log('spy.mock', spy.mock)
+    // spy.mock {
+    //   calls: [],
+    //       contexts: [],
+    //       instances: [],
+    //       invocationCallOrder: [],
+    //       results: []
+    // }
   })
 
   afterEach(() => {
@@ -21,6 +30,16 @@ describe('spyを使ったexport defaultの検証', () => {
     // spy.mock.callsは呼び出した回数分の引数の情報がはいる
     // lengthを使えば、何回呼び出されたのかがわかる
     assert.equal(spy.mock.calls.length, 1)
+
+    // console.log('spy.mock', spy.mock)
+    // spy.mock {
+    //   calls: [ [ 2 ] ],
+    //       contexts: [ undefined ],
+    //       instances: [ undefined ],
+    //       invocationCallOrder: [ 1 ],
+    //       results: [ { type: 'return', value: 4 } ],
+    //       lastCall: [ 2 ]
+    // }
   });
 
   it('引数は、3である', () => {

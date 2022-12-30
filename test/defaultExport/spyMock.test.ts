@@ -1,4 +1,4 @@
-// npx jest test/defaultExport/mock.test.ts
+// npx jest test/defaultExport/spyMock.test.ts
 import doubleSquare from "../../src/defaultExport/doubleSquare"
 import double from "../../src/defaultExport/double"
 import assert from "assert"
@@ -13,7 +13,7 @@ jest.mock('../../src/defaultExport/double', () => {
   }
 })
 
-describe('jest.mockを使ったexport defaultの検証', () => {
+describe('spy(jest.mock)を使ったexport defaultの検証', () => {
   afterEach(() => {
     // doubleはmockされていても、importしたときの情報しかもたないので、
     // mockメソッドを使用するには、jest.Mockにキャストが必要

@@ -1,7 +1,8 @@
 import doubleSquare from "../../src/defaultExport/doubleSquare"
-const assert = require('assert')
+import assert from "assert"
 
-describe('spy export default', () => {
+// jest.spyOnを使ってspyを実現する
+describe('spyを使ったexport defaultの検証', () => {
   let spy: jest.SpyInstance
 
   beforeAll(() => {
